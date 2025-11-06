@@ -3,17 +3,25 @@ public class Oven
     private int maxTemp;
     private int currentTemp;
 
-    Open(int mexTemp, int currentTemp)
+    public Oven(int maxTemp, int currentTemp)
     {
-        if()
+        if(maxTemp > 0 && maxTemp <= 500)
         {
             this.maxTemp = maxTemp;
-            this.currentTemp = currentTemp;
+            
         }
-        else if ()
+        else
         {
             this.maxTemp = 500;
-            this.currentTemp = 0;
+        }
+
+        if (!(currentTemp > this.maxTemp || currentTemp < 0))
+        {
+            this.currentTemp = currentTemp;
+        }
+        else
+        {
+            this.currentTemp = this.maxTemp;
         }
     }
 
@@ -41,26 +49,25 @@ public class Oven
         {
             return true;
         }
+
+        return false;
     }
 
     public void PreHeat(int temp)
     {
         if(temp > maxTemp)
         {
-            currentTemp = maxTemp
-            return currentTemp;
+            currentTemp = maxTemp;
         }
-        else if(temp <= 0)
+        else if(temp < maxTemp && temp > 0)
         {
-            return currentTemp;
+            currentTemp = temp;
         }
-        currentTemp = temp;
-        return currentTemp;
     }
 
     public String toString()
     {
-
+        return "New oven with a maximum temperature of " + maxTemp + " and a starting temperature of " + currentTemp + "\n";
     }
 
 }
