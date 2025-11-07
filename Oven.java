@@ -45,12 +45,22 @@ public class Oven
 
     public boolean IsOn()
     {
-        if(currentTemp > 0)
+        if(currentTemp >= 0)
         {
             return true;
         }
 
         return false;
+    }
+
+    public void SetMaxTemp(int newMaxTemp)
+    {
+        maxTemp = newMaxTemp;
+    }
+
+    public void SetCurrentTemp(int newCurrentTemp)
+    {
+        currentTemp = newCurrentTemp;
     }
 
     public void PreHeat(int temp)
@@ -67,7 +77,7 @@ public class Oven
 
     public String toString()
     {
-        return "New oven with a maximum temperature of " + maxTemp + " and a starting temperature of " + currentTemp + "\n";
+        return "New oven with a maximum temperature of " + maxTemp + " and a starting temperature of " + currentTemp + " degrees.\n";
     }
 
 }
